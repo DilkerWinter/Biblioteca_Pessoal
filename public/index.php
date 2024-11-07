@@ -12,6 +12,9 @@ $usuarioController = new UsuarioController($pdo);
 
 $router->add("POST", '/registrar', [$usuarioController, 'create']);
 $router->add("POST", '/login', [$usuarioController, 'login']);
+$router->add("PUT", '/atualizar', [$usuarioController, 'update']);   
+$router->add("DELETE", '/deletar', [$usuarioController, 'delete']); 
+$router->add("GET", '/usuario', [$usuarioController, 'findById']);
 
 $requestedPath = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $pathItems = explode("/", trim($requestedPath, "/"));

@@ -72,11 +72,19 @@ class Usuario
     }
 
     public function delete($id) {
+        $checkSql = "SELECT COUNT(*) FROM usuario WHERE id = :id";
+        $checkStmt = $this->conn->prepare($checkSql);
+        $checkStmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $checkStmt->execute();
+    
+        if ($checkStmt->fetchColumn() == 0) {
+            return false;
+        }
+    
         $sql = "DELETE FROM usuario WHERE id = :id";
         
         try {
             $stmt = $this->conn->prepare($sql);
-            
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             
             return $stmt->execute();
@@ -86,6 +94,7 @@ class Usuario
             return false;
         }
     }
+    
     
 
     public function findById($id) {
