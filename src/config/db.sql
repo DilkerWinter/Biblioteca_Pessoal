@@ -12,5 +12,5 @@ CREATE TABLE livro (
     urlimagem TEXT,
     comentario TEXT,
     nota INTEGER,
-    status VARCHAR(20), NOT NULL 
+    status VARCHAR(20)
 );
