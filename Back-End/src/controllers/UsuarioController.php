@@ -15,7 +15,6 @@ class UsuarioController
     public function create($dados)
     {
         $data = json_decode(file_get_contents("php://input"));
-        var_dump($_POST);
         if (isset($data->nome) && isset($data->senha)) {
             try {
                 $result = $this->usuario->create($data->nome, $data->senha);
@@ -44,7 +43,7 @@ class UsuarioController
                 $userId = $this->usuario->login($data->nome, $data->senha);
                 if ($userId !== false) {
                     http_response_code(200);
-                    echo json_encode(["message" => "Login bem-sucedido.", "user_id" => $userId]);
+                    echo json_encode(["user_id" => $userId]);
                 } else {
                     http_response_code(401);
                     echo json_encode(["message" => "Nome de usuário ou senha incorretos."]);
