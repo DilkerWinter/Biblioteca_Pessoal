@@ -16,8 +16,8 @@ $router->add("POST", '/registrar', [$usuarioController, 'create']);
 $router->add("POST", '/login', [$usuarioController, 'login']);
 $router->add("PUT", '/atualizar', [$usuarioController, 'update']);   
 $router->add("DELETE", '/deletar', [$usuarioController, 'delete']); 
-$router->add("GET", '/usuario', [$usuarioController, 'findById']);
-
+$router->add("POST", '/usuario', [$usuarioController, 'findById']);
+$router->add('POST', '/existente', [$usuarioController,'usuarioJaExiste']);
 
 $router->add("POST", '/livro/registrar', [$livroController, 'create']);
 $router->add("PUT", '/livro/atualizar', [$livroController, 'update']);

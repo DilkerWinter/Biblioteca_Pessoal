@@ -1,13 +1,53 @@
 <div class="flex items-center justify-center flex-col m-20 mb-5">
-    <button (click)="adicionarLivro()" class="bg-indigo-500 text-white text-xl py-4 px-6 rounded-2xl hover:bg-indigo-700">
-        Adicionar Livro
-    </button>
-    <div
-    class="h-fit w-full bg-stone-200 m-32 mt-14 rounded-3xl grid grid-cols-4 gap-8 pl-10 pr-10 pb-20 pt-10 shadow-2xl "
-  >
-  <app-livro-card class="z-10"
-  *ngFor="let livro of livros"
-  [livro]="livro"
-></app-livro-card>
+  <div class="bg-stone-200 w-96 p-6 rounded-2xl shadow-xl space-y-4">
+    <div class="flex items-center justify-between space-x-3">
+      <div class="flex items-center space-x-3">
+        
+        <button 
+        (click)="onEditUser()"
+        class="text-white text-2xl mb-4 bg-indigo-500 rounded-full w-10 h-10 flex items-center justify-center hover:bg-indigo-600">
+            <fa-icon
+            [icon]="faUser"
+            class=""
+          ></fa-icon>
+        </button>
+        <p class="text-xl font-semibold">{{ usuarioNome }}</p>
+      </div>
+      <button
+        (click)="onLogout()"
+        class="mb-4 right-12 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600"
+      >
+        <fa-icon [icon]="faExit"></fa-icon>
+      </button>
     </div>
+
+    <div class="space-y-2">
+      <p class="text-lg font-medium">
+        Total de livros lidos:
+        <span class="font-bold text-green-600">{{ totalLivrosLidos }}</span>
+      </p>
+      <p class="text-lg font-medium">
+        Total de livros não lidos:
+        <span class="font-bold text-red-600">{{ totalLivrosNaoLidos }}</span>
+      </p>
+    </div>
+
+    <button
+      (click)="adicionarLivro()"
+      class="w-full bg-indigo-500 text-white text-xl py-4 px-6 rounded-2xl hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+    >
+      Adicionar Livro
+    </button>
+  </div>
+
+  <div
+    class="h-fit w-full bg-stone-200 m-32 mt-14 rounded-3xl grid grid-cols-4 gap-8 pl-10 pr-10 pb-20 pt-10 shadow-2xl"
+  >
+    <app-livro-card
+      class="z-10"
+      *ngFor="let livro of livros"
+      [livro]="livro"
+      (livroAtualizado)="onLivroAtualizado($event)"
+    ></app-livro-card>
+  </div>
 </div>

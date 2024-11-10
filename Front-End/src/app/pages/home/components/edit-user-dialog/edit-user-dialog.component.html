@@ -1,0 +1,38 @@
+<div class="bg-gray-200 h-full w-full flex flex-col items-center p-5">
+    <p class="text-center text-4xl font-medium mb-4">Adicionar Usuário</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-3/4 pt-5">
+        <div class="flex flex-col space-y-2">
+            <label for="nome">Nome do Usuário</label>
+            <input 
+                id="nome" 
+                type="text" 
+                class="p-2 border border-gray-300 rounded" 
+                [(ngModel)]="usuario.nome" 
+                required
+            >
+        </div>
+
+        <div class="flex flex-col space-y-2">
+            <label for="senha">Senha do Usuário</label>
+            <input 
+                id="senha" 
+                type="password" 
+                class="p-2 border border-gray-300 rounded" 
+                [(ngModel)]="usuario.senha" 
+                required
+            >
+        </div>
+
+        <div class="col-span-2 flex justify-end">
+            <button 
+                type="button" 
+                class="bg-green-500 px-4 py-2 text-white rounded-2xl shadow-md shadow-gray-600/50 transition duration-300 ease-in-out hover:bg-green-600 hover:shadow-lg hover:scale-105" 
+                (click)="onSubmit()" 
+                [disabled]="!usuario.nome || !usuario.senha"
+            >
+                Salvar
+            </button>
+        </div>
+    </div>
+</div>

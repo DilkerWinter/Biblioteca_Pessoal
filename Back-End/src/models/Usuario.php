@@ -116,5 +116,17 @@ class Usuario
             return null;
         }
     }
+
+    public function usuarioJaExiste($nomeusuario) {
+        $query = "SELECT COUNT(*) FROM usuario WHERE nome = :nomeusuario";
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->bindParam(':nomeusuario', $nomeusuario);
+        $stmt->execute();
+        
+        $count = $stmt->fetchColumn();
+        
+        return $count > 0;
+    }
     
 }

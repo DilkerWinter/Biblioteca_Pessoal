@@ -126,4 +126,28 @@ class UsuarioController
             echo json_encode(["message" => "Dados incompletos."]);
         }
     }
+
+    public function usuarioJaExiste()
+    {
+        $data = json_decode(file_get_contents("php://input"));
+        if (isset($data->nome)) {
+            try {
+                $userExists = $this->usuario->usuarioJaExiste($data->nome);
+
+                if ($userExists) {
+                    http_response_code(200);
+                    echo json_encode(["message" => "Nome de usuário já existe."]);
+                } else {
+                    http_response_code(200);
+                    echo json_encode(["message" => "Nome de usuário disponível."]);
+                }
+            } catch (\Throwable $th) {
+                http_response_code(500);
+                echo json_encode(["message" => "Erro ao verificar nome de usuário."]);
+            }
+        } else {
+            http_response_code(400);
+            echo json_encode(["message" => "Dados incompletos."]);
+        }
+    }
 }

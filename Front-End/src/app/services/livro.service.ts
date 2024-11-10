@@ -51,4 +51,12 @@ export class LivroService {
 
     return this.http.put(urlAtualizar, livroData);
   }
+
+  deletarLivro(id?: number): Observable<any> {
+    const urlDeletar = `${this.apiUrl}/deletar`;
+
+    return this.http.delete(urlDeletar, { 
+      body: { id } 
+    });
+  }
 }

@@ -22,7 +22,7 @@
       <p class="text-gray-500 text-xs italic mb-2">{{ comentario }}</p>
     </div>
     
-    <button class="absolute top-2 right-2 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center hover:bg-blue-600">
+    <button (click)="onEditCard()" class="absolute top-2 right-2 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center hover:bg-indigo-600">
       <fa-icon [icon]="faPen"></fa-icon> 
     </button>
   </div>
