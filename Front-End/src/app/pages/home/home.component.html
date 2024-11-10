@@ -1,8 +1,13 @@
 <div class="flex items-center justify-center flex-col m-20 mb-5">
-    <button class="bg-indigo-500 text-white py-4 px-6 rounded-2xl hover:bg-indigo-700">
+    <button (click)="adicionarLivro()" class="bg-indigo-500 text-white text-xl py-4 px-6 rounded-2xl hover:bg-indigo-700">
         Adicionar Livro
     </button>
-    <div class="bg-red-500 h-full w-full m-20">
-
+    <div
+    class="h-fit w-full bg-stone-200 m-32 mt-14 rounded-3xl grid grid-cols-4 gap-8 pl-10 pr-10 pb-20 pt-10 shadow-2xl "
+  >
+  <app-livro-card class="z-10"
+  *ngFor="let livro of livros"
+  [livro]="livro"
+></app-livro-card>
     </div>
 </div>

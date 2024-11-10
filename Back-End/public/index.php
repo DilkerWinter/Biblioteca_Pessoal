@@ -22,7 +22,7 @@ $router->add("GET", '/usuario', [$usuarioController, 'findById']);
 $router->add("POST", '/livro/registrar', [$livroController, 'create']);
 $router->add("PUT", '/livro/atualizar', [$livroController, 'update']);
 $router->add("DELETE", '/livro/deletar', [$livroController, 'delete']);
-$router->add("GET", '/livro', [$livroController, 'getAllByUserId']);
+$router->add("POST", '/livro', [$livroController, 'getAllByUserId']);
 
 $requestedPath = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $pathItems = explode("/", trim($requestedPath, "/"));

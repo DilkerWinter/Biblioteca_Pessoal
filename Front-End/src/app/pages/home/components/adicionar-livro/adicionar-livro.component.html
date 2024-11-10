@@ -1,1 +1,55 @@
-<p>adicionar-livro works!</p>
+<div class="bg-gray-200 h-full w-full flex flex-col items-center p-5">
+    <p class="text-center text-4xl font-medium mb-4">Adicionar Livro</p>
+
+    <div class="grid grid-cols-3 gap-4 w-3/4 pt-5">
+        <div class="flex flex-col space-y-2">
+            <label for="titulo">Título do Livro</label>
+            <input id="titulo" type="text" class="p-2 border border-gray-300 rounded" [(ngModel)]="livro.titulo" required>
+        </div>
+
+        <div class="flex flex-col space-y-2">
+            <label for="autor">Autor do Livro</label>
+            <input id="autor" type="text" class="p-2 border border-gray-300 rounded" [(ngModel)]="livro.autor" required>
+        </div>
+
+        <div class="flex flex-col space-y-2">
+            <label for="urlImagem">Url Imagem</label>
+            <input id="urlImagem" type="text" class="p-2 border border-gray-300 rounded" [(ngModel)]="livro.urlimagem" required>
+        </div>
+
+        <div class="flex flex-col space-y-2">
+            <label for="nota">Nota Livro</label>
+            <select id="nota" name="nota" class="p-2 border border-gray-300 rounded" [(ngModel)]="livro.nota" required>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+        </div>
+
+        <div class="flex flex-col space-y-2 col-span-2">
+            <label for="status">Progresso da Leitura</label>
+            <select id="status" class="p-2 border border-gray-300 rounded" [(ngModel)]="livro.status" required>
+                <option>Pendente</option>
+                <option>Estou Lendo</option>
+                <option>Finalizado</option>
+            </select>
+        </div>
+
+        <div class="flex flex-col space-y-2 col-span-3">
+            <label for="comentario">Comentários</label>
+            <textarea id="comentario" class="p-2 border border-gray-300 rounded h-32 resize-none" [(ngModel)]="livro.comentario"></textarea>
+        </div>
+
+        <div class="col-span-3 flex justify-end">
+            <button 
+                type="button" 
+                class="bg-green-500 px-4 py-2 text-white rounded-2xl shadow-md shadow-gray-600/50 transition duration-300 ease-in-out hover:bg-green-600 hover:shadow-lg hover:scale-105" 
+                (click)="onSubmit()" 
+                [disabled]="!livro.titulo || !livro.autor ||  !livro.nota || !livro.status">
+                Salvar
+            </button>
+        </div>
+    </div>
+</div>
