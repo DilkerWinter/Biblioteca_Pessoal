@@ -37,7 +37,7 @@ Abrir o projeto na pasta Back-End e executar o seguinte comando:
 php -S localhost:8000 -t public
 ```
 
-Abra o projeto na pasca Front-End em outro terminal e execute os comandos:
+Abra o projeto na pasta Front-End em outro terminal e execute os comandos:
 ```bash
 npm install
  ```
