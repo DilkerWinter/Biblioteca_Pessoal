@@ -22,6 +22,30 @@ Tecnologias utilizadas no projeto
 - Desenvolvimento de uma interface para criar, alterar, deletar e visualizar.
 - Extras: Utilização de Tailwind CSS para estilização e PHPUNIT para testes.
 
+## 💻 Instalação
+
+### Pré-requisitos
+
+- Node
+- Angular 18
+- PHP
+
+### Passo a Passo
+
+Abrir o projeto na pasta Back-End e executar o seguinte comando:
+```bash
+php -S localhost:8000 -t public
+```
+
+Abra o projeto na pasca Front-End em outro terminal e execute os comandos:
+```bash
+ npm install
+ ```
+
+ ```bash
+ ng serve
+ ```
+
 
 
 ## 🤖 Tecnologias
