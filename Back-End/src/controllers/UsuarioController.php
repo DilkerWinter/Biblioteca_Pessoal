@@ -12,7 +12,7 @@ class UsuarioController
         $this->usuario = new Usuario($db);
     }
 
-    public function create($dados)
+    public function create()
     {
         $data = json_decode(file_get_contents("php://input"));
         if (isset($data->nome) && isset($data->senha)) {
